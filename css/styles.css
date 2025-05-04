@@ -169,7 +169,7 @@ header {
 /* Hero Section */
 .hero {
     height: 80vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://www.livemint.com/lm-img/img/2024/09/09/optimize/g478386a2a3dca3b1e32c2adea63de064600dd79844e0e484ab504ce8e7d408c2e596bd2dfd035074c9c5c4f69bfd547ddd108125b552c8821f010690be1fb15c_1280_1714981463266_1725857368724.jpg') no-repeat center center/cover;
     color: #fff;
     display: flex;
     align-items: center;
@@ -276,7 +276,7 @@ header {
 
 /* CTA Section */
 .cta {
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://cdn.britannica.com/67/255767-159-D4D69695/Human-Hand-Stopping-Wooden-Blocks-From-Falling-On-Stacked-Coins.jpg') no-repeat center center/cover;
     color: #fff;
     text-align: center;
     padding: 80px 20px;
@@ -377,7 +377,7 @@ footer {
 
 /* Page Header */
 .page-header {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://www.ultimitats.com/wp-content/uploads/2015/12/business-setup-in-dubai-with-difference.jpg') no-repeat center center/cover;
     color: #fff;
     text-align: center;
     padding: 100px 20px;

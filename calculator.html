@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calorie Calculator - FitLife Center</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="js/scripts.js" defer></script>
-    <script src="js/calculator.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan Calculator</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <header>
         <nav class="navbar">
             <div class="logo">
-                <h1>FitLife<span>Center</span></h1>
+                <h1>FinService<span>Advisors</span></h1>
             </div>
             <div class="menu-toggle" id="mobile-menu">
                 <span class="bar"></span>
@@ -24,159 +21,72 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="calculator.html" class="active">Calorie Calculator</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="calculator.html">Loan Calculator</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
             </ul>
         </nav>
     </header>
-
-    <section class="page-header">
-        <h1>Calorie Burn Calculator</h1>
-    </section>
-
-    <section class="calculator-intro">
-        <div class="container">
-            <p class="animate-on-scroll">Our Calorie Burn Calculator helps you estimate how many calories you burn during different types of workouts based on your weight, workout intensity, and duration. Use this tool to plan your workouts and track your progress towards your fitness goals.</p>
+  <div class="container calculator-section">
+    <div class="calculator-container">
+      <h2 class="section-title">Loan Calculator</h2>
+      <div class="calculator-form">
+        <div class="form-group">
+          <label for="amount">Loan Amount</label>
+          <input type="number" id="amount" placeholder="Enter loan amount">
         </div>
-    </section>
+        <div class="form-group">
+          <label for="rate">Interest Rate (%)</label>
+          <input type="number" id="rate" placeholder="Enter interest rate">
+        </div>
+        <div class="form-group">
+          <label for="years">Loan Term (Years)</label>
+          <input type="number" id="years" placeholder="Enter number of years">
+        </div>
+        <button class="btn" onclick="calculateLoan()">Calculate</button>
+      </div>
+      <div class="calculator-result">
+        <h3 class="section-title" style="font-size: 1.8rem; margin-top: 40px;">Records</h3>
+        <div style="overflow-x:auto;">
+          <table style="width: 100%; border-collapse: collapse; box-shadow: var(--box-shadow);">
+            <thead style="background-color: var(--light-color);">
+              <tr style="color: var(--secondary-color);">
+                <th style="padding: 12px; border-bottom: 2px solid #ddd;">Amount</th>
+                <th style="padding: 12px; border-bottom: 2px solid #ddd;">Rate (%)</th>
+                <th style="padding: 12px; border-bottom: 2px solid #ddd;">Years</th>
+                <th style="padding: 12px; border-bottom: 2px solid #ddd;">Monthly Payment</th>
+              </tr>
+            </thead>
+            <tbody id="recordsBody" style="text-align: center;"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <section class="calculator-section">
-        <div class="calculator-container animate-on-scroll">
-            <h2>Calculate Your Calorie Burn</h2>
-            <form id="calorie-calculator" class="calculator-form">
-                <div class="form-group">
-                    <label for="weight">Your Weight (kg):</label>
-                    <input type="number" id="weight" name="weight" min="30" max="200" required placeholder="Enter your weight">
-                </div>
-                
-                <div class="form-group">
-                    <label for="activity">Workout Type:</label>
-                    <select id="activity" name="activity" required>
-                        <option value="" disabled selected>Select workout type</option>
-                        <option value="running">Running</option>
-                        <option value="cycling">Cycling</option>
-                        <option value="swimming">Swimming</option>
-                        <option value="weight_training">Weight Training</option>
-                        <option value="yoga">Yoga</option>
-                        <option value="hiit">HIIT</option>
-                        <option value="walking">Walking</option>
-                        <option value="elliptical">Elliptical</option>
-                        <option value="stair_climbing">Stair Climbing</option>
-                        <option value="dancing">Dancing</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="intensity">Workout Intensity:</label>
-                    <select id="intensity" name="intensity" required>
-                        <option value="" disabled selected>Select intensity level</option>
-                        <option value="low">Low (Light effort, easy breathing)</option>
-                        <option value="medium">Medium (Moderate effort, slightly heavy breathing)</option>
-                        <option value="high">High (Vigorous effort, heavy breathing)</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="duration">Duration (minutes):</label>
-                    <input type="number" id="duration" name="duration" min="5" max="300" required placeholder="Enter workout duration">
-                </div>
-                
-                <button type="submit" class="btn">Calculate</button>
-            </form>
-            
-            <div id="result" class="calculator-result">
-                <h3>Estimated Calories Burned:</h3>
-                <div class="result-value">
-                    <span id="calories">0</span> calories
-                </div>
-                <p class="result-note">This is an estimate based on average values. Actual calorie burn may vary based on individual factors such as age, gender, fitness level, and metabolism.</p>
-            </div>
-        </div>
-    </section>
+  <script>
+    function calculateLoan() {
+      const amount = parseFloat(document.getElementById('amount').value);
+      const rate = parseFloat(document.getElementById('rate').value);
+      const years = parseFloat(document.getElementById('years').value);
 
-    <section class="calculator-info">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">Understanding Calorie Burn</h2>
-            <div class="info-cards">
-                <div class="info-card animate-on-scroll">
-                    <h3><i class="fas fa-fire"></i> What Affects Calorie Burn?</h3>
-                    <p>Several factors influence how many calories you burn during exercise:</p>
-                    <ul>
-                        <li>Body weight: Heavier individuals burn more calories performing the same activity</li>
-                        <li>Exercise intensity: Higher intensity workouts burn more calories</li>
-                        <li>Duration: Longer workouts burn more calories</li>
-                        <li>Fitness level: As you become fitter, your body becomes more efficient</li>
-                        <li>Muscle mass: More muscle burns more calories, even at rest</li>
-                    </ul>
-                </div>
-                
-                <div class="info-card animate-on-scroll">
-                    <h3><i class="fas fa-chart-line"></i> Maximizing Your Calorie Burn</h3>
-                    <p>Tips to increase your calorie burn during workouts:</p>
-                    <ul>
-                        <li>Incorporate high-intensity interval training (HIIT)</li>
-                        <li>Add strength training to build muscle</li>
-                        <li>Stay consistent with your workout routine</li>
-                        <li>Gradually increase workout duration and intensity</li>
-                        <li>Mix up your workouts to challenge different muscle groups</li>
-                    </ul>
-                </div>
-                
-                <div class="info-card animate-on-scroll">
-                    <h3><i class="fas fa-balance-scale"></i> Calories and Weight Loss</h3>
-                    <p>Understanding the relationship between calories and weight:</p>
-                    <ul>
-                        <li>1 pound of fat equals approximately 3,500 calories</li>
-                        <li>To lose weight, you need to create a calorie deficit</li>
-                        <li>Combine exercise with a healthy diet for optimal results</li>
-                        <li>Aim for a sustainable calorie deficit of 500-1000 calories per day</li>
-                        <li>Track both calories consumed and calories burned</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+      if (isNaN(amount) || isNaN(rate) || isNaN(years) || amount <= 0 || rate <= 0 || years <= 0) {
+        alert('Please enter valid positive numbers.');
+        return;
+      }
 
-    <section class="cta">
-        <div class="cta-content animate-on-scroll">
-            <h2>Want Personalized Fitness Guidance?</h2>
-            <p>Our expert trainers can help you create a customized workout and nutrition plan to achieve your goals.</p>
-            <a href="contact.html" class="btn">Contact Us</a>
-        </div>
-    </section>
+      const monthlyRate = rate / 100 / 12;
+      const n = years * 12;
+      const monthlyPayment = (amount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -n));
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3>FitLife Center</h3>
-                <p>Your ultimate destination for fitness and wellness.</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="calculator.html">Calorie Calculator</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Contact Us</h3>
-                <p><i class="fas fa-map-marker-alt"></i> 123 Fitness Street, Healthy City</p>
-                <p><i class="fas fa-phone"></i> (123) 456-7890</p>
-                <p><i class="fas fa-envelope"></i> info@fitlifecenter.com</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 FitLife Center. All Rights Reserved.</p>
-        </div>
-    </footer>
+      const row = `<tr>
+        <td style='padding: 10px;'>$${amount.toFixed(2)}</td>
+        <td style='padding: 10px;'>${rate.toFixed(2)}</td>
+        <td style='padding: 10px;'>${years}</td>
+        <td style='padding: 10px;'>$${monthlyPayment.toFixed(2)}</td>
+      </tr>`;
+
+      document.getElementById('recordsBody').innerHTML += row;
+    }
+  </script>
 </body>
 </html>
